@@ -8,7 +8,8 @@ using namespace std;
 * user-inputted width
 *
 * TODO:
-*	- fix printTraditionalPyramid()
+*	- fix odd pyramid printing in
+*     	printTraditionalPyramid()
 *   - add user-input checks to getStyle() and 
 *     	getWidth()
 **********************************************/
