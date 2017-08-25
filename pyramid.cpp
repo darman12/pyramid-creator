@@ -18,7 +18,7 @@ using namespace std;
 * Prompts user for pyramid width
 **********************************/
 int getWidth() {
-	cout << " \nEnter an integer to generate the pyramid: ";	
+	cout << " \nEnter a whole number to generate the pyramid: ";	
 	int width = 0;		
 	cin >> width;
 	return width;
@@ -28,12 +28,12 @@ int getWidth() {
 * Prompts user for pyramid style
 **********************************/
 int getPyramidStyle() {
-	int style = 2;	
+	int style = 0;	
 	cout << "\nSelect the style of pyramid you would like: "
-		 << "\n\n(1) Mario-inspired "
-         << "\n(2) Traditional "
+		 << "\n\nSelect (1) for Mario-inspired pyramid"
+         << "\nSelect (2) for Traditional pyramid"
          << "\n\nStyle: ";
-
+	
 	cin >> style;
 	return style;
 }
@@ -61,13 +61,25 @@ void printMarioPyramid(int baseWidth) {
 * Prints traditional-style pyramid
 **********************************/
 void printTraditionalPyramid(int baseWidth) {
-	cout << "\n";	
+	cout << "\n";
+		
+		int offset = 1;
+		if (baseWidth % 2 != 0) {
+			cout << "odd " << baseWidth % 2 << endl;			 		
+		}
+		else {			
+			offset = baseWidth / 2;
+		}
+
+
+
 	for (int currentLayer = 1; currentLayer <= baseWidth; currentLayer+=2) {
-		cout << setw(baseWidth - currentLayer);		
-		for (int i = 1; i <= currentLayer; i++) {
+		cout << setw(offset);
+		for (int i = 1; i <= currentLayer; i++) {			
 			cout << "#";
 		}
 		cout << endl;
+		offset--;
 	}
 }
 
@@ -82,12 +94,11 @@ int main() {
 	int pyramidStyle = getPyramidStyle();
 	int pyramidWidth = getWidth();	
 
-	if (pyramidStyle == 1) {
-		printMarioPyramid(pyramidWidth);
-	}
-	else {
+	if (pyramidStyle == 2) {
 		printTraditionalPyramid(pyramidWidth);
 	}
-
+	else {
+		printMarioPyramid(pyramidWidth);
+	}
 	return 0;
 }
