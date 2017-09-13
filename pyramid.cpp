@@ -12,6 +12,8 @@ using namespace std;
 *     	printTraditionalPyramid()
 *   - add user-input checks to getStyle() and 
 *     	getWidth()
+*   - make getWidth() prompt more descriptive
+*     	for the user
 **********************************************/
 
 
